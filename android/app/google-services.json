@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1023000700204",
+    "project_id": "solcha2024",
+    "storage_bucket": "solcha2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023000700204:android:fc480b4a8486a8f7783889",
+        "android_client_info": {
+          "package_name": "com.example.solcha2024"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChEHzC8CQcnoZtfuHV5jBzuWfMWYTno_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
