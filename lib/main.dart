@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       home:
           //NavigationMenu(), //<------------------ change the class if you need to test
-          Welcome(),
+          NavigationMenu(),
     );
   }
 }
