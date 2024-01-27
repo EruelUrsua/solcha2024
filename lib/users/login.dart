@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:solcha2024/nav.dart';
 import 'package:solcha2024/toast.dart';
 import 'package:solcha2024/users/firebase_auth_service.dart';
 import 'package:solcha2024/users/form_container_widget.dart';
@@ -15,17 +16,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // bool _isSigning = false;
-  // final FirebaseAuthService _auth = FirebaseAuthService();
-  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  // TextEditingController _emailController = TextEditingController();
-  // TextEditingController _passwordController = TextEditingController();
+  bool _isSigning = false;
+  final FirebaseAuthService _auth = FirebaseAuthService();
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    // _emailController.dispose();
-    // _passwordController.dispose();
-    // super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30,
               ),
               FormContainerWidget(
-                // controller: _emailController,
+                controller: _emailController,
                 hintText: "Email",
                 isPasswordField: false,
               ),
@@ -57,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
               FormContainerWidget(
-                //  controller: _passwordController,
+                controller: _passwordController,
                 hintText: "Password",
                 isPasswordField: true,
               ),
@@ -66,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  //  _signIn();
+                  _signIn();
                 },
                 child: Container(
                   width: double.infinity,
@@ -76,18 +77,17 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                    //  child: _isSigning
-                    //       ? CircularProgressIndicator(
-                    //           color: Colors.white,
-                    //         )
-                    //       :
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: _isSigning
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                 ),
               ),
@@ -126,25 +126,26 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // void _signIn() async {
-  //   setState(() {
-  //     _isSigning = true;
-  //   });
+  void _signIn() async {
+    setState(() {
+      _isSigning = true;
+    });
 
-  //   String email = _emailController.text;
-  //   String password = _passwordController.text;
+    String email = _emailController.text;
+    String password = _passwordController.text;
 
-  //   User? user = await _auth.signINWithEmailAndPassword(email, password);
+    User? user = await _auth.signINWithEmailAndPassword(email, password);
 
-  //   setState(() {
-  //     _isSigning = false;
-  //   });
+    setState(() {
+      _isSigning = false;
+    });
 
-  //   if (user != null) {
-  //     showToast(message: "User is successfully signed in");
-  //     Navigator.pushNamed(context, "/home");
-  //   } else {
-  //     showToast(message: "some error occured");
-  //   }
-  // }
+    if (user != null) {
+      showToast(message: "User is successfully signed in");
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NavigationMenu()));
+    } else {
+      showToast(message: "Wrong Email/Password");
+    }
+  }
 }
