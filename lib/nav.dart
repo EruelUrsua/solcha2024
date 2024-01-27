@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:solcha2024/booking.dart';
+import 'package:solcha2024/profile.dart';
 
 class NavigationMenu extends StatefulWidget {
   const NavigationMenu({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
   List<Widget> body = const [
     Text('Home'),
     Booking(),
-    Text('Profile'),
+    Profile(),
   ];
 
   @override

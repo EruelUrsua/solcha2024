@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
       home:
-          //NavigationMenu(), //<------------------ change the class if you need to test
-          //Welcome(),
-          Profile(),
+          NavigationMenu(), //<------------------ change the class if you need to test
+      //Welcome(),
+      //Profile(),
     );
   }
 }
