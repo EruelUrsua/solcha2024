@@ -22,6 +22,9 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+
+
+
 android {
     namespace "com.example.solcha2024"
     compileSdkVersion flutter.compileSdkVersion
