@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solcha2024/nav.dart';
+import 'package:solcha2024/profile.dart';
 import 'package:solcha2024/users/startup.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       ),
       home:
           //NavigationMenu(), //<------------------ change the class if you need to test
-          NavigationMenu(),
+          //Welcome(),
+          Profile(),
     );
   }
 }
