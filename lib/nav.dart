@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:solcha2024/booking.dart';
+import 'package:solcha2024/home.dart';
 import 'package:solcha2024/profile.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -15,7 +16,7 @@ class NavigationMenu extends StatefulWidget {
 class _NavigationMenuState extends State<NavigationMenu> {
   int _currentIndex = 0;
   List<Widget> body = const [
-    Text('Home'),
+    Home(),
     Booking(),
     Profile(),
   ];
