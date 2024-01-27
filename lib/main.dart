@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solcha2024/nav.dart';
+import 'package:solcha2024/profile.dart';
 import 'package:solcha2024/users/startup.dart';
 
 void main() {
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
       home:
-          //NavigationMenu(), //<------------------ change the class if you need to test
-          NavigationMenu(),
+          NavigationMenu(), //<------------------ change the class if you need to test
+      //Welcome(),
+      //Profile(),
     );
   }
 }
