@@ -9,7 +9,7 @@ class FirebaseAuthService {
           email: email, password: password);
       return credential.user;
     } catch (e) {
-      print('test');
+      print('Unable to create a new user');
     }
     return null;
   }
@@ -21,7 +21,7 @@ class FirebaseAuthService {
           email: email, password: password);
       return credential.user;
     } catch (e) {
-      print('test');
+      print('Unable to login user');
     }
     return null;
   }
