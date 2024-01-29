@@ -9,14 +9,26 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Heading'),
-      ),
+      appBar:
+          AppBar(backgroundColor: const Color(0xFF8E8BE6), actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.notifications),
+          color: Colors.grey.shade800,
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Should open something')));
+          },
+        ),
+      ]),
       body: buildHomeBody(context),
+      drawer: Drawer(
+        backgroundColor: Colors.grey.shade50,
+      ),
     );
   }
 
   Widget buildHomeBody(BuildContext context) => Container(
+        alignment: Alignment.center,
         child: GestureDetector(
           onTap: () {
             FirebaseAuth.instance.signOut();
@@ -29,7 +41,7 @@ class Home extends StatelessWidget {
             width: 100,
             decoration: BoxDecoration(
                 color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-            child: Center(
+            child: const Center(
               child: Text(
                 "Sign out",
                 style: TextStyle(
