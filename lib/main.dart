@@ -32,6 +32,6 @@ class MyApp extends StatelessWidget {
           //NavigationMenu(), //<------------------ change the class if you need to test
           SignUpPage(),
       //Profile(),
-    );
+    ); //
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:solcha2024/nav.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -75,7 +74,10 @@ class _ProfileState extends State<Profile> {
         //height: 300.0,
         decoration: const BoxDecoration(
             color: Color(0xFF484F79),
-            borderRadius: BorderRadius.all(Radius.circular(15))),
+            borderRadius: BorderRadiusDirectional.only(
+              bottomStart: Radius.circular(15),
+              bottomEnd: Radius.circular(15),
+            )),
         //child: const Placeholder(color: Color.fromARGB(255, 44, 42, 66)),
         child: buildProfileImage(),
       );
