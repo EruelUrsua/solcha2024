@@ -44,6 +44,7 @@ dependencies:
   toggle_switch: ^2.1.0
   flutter_launcher_icons: ^0.13.1
   carousel_slider: ^4.2.1
+  another_flutter_splash_screen: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -53,7 +54,8 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/logo.png"
-
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/white_logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -78,6 +80,7 @@ flutter:
     - assets/image0.png
     - assets/image1.png
     - assets/image2.png
+    - assets/logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

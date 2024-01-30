@@ -40,7 +40,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
             ),
             BottomNavigationBarItem(
               label: 'Book',
-              icon: Icon(Icons.bookmark_rounded),
+              icon: Icon(Icons.bookmarks),
             ),
             BottomNavigationBarItem(
               label: 'Profile',
