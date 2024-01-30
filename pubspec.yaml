@@ -44,7 +44,7 @@ dependencies:
   toggle_switch: ^2.1.0
   flutter_launcher_icons: ^0.13.1
   carousel_slider: ^4.2.1
-  another_flutter_splash_screen: ^1.2.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -53,7 +53,6 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/logo.png"
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/white_logo.png"
 
