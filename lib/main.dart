@@ -29,14 +29,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
       home:
-<<<<<<< HEAD
           NavigationMenu(), //<------------------ change the class if you need to test
     );
-=======
-          //NavigationMenu(), //<------------------ change the class if you need to test
-          SignUpPage(),
-      //Profile(),
-    ); //
->>>>>>> 8111122 (changed border radius in profile and edited home dart)
   }
 }
