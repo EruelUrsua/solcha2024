@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:solcha2024/custom_appbar_shape.dart';
+import 'package:solcha2024/menu_drawer.dart';
 import 'package:solcha2024/toast.dart';
 import 'package:solcha2024/users/login.dart';
 
@@ -45,11 +46,11 @@ class _HomeState extends State<Home> {
       body: Column(children: [
         buildRoundAppBar(context),
         _buildCarousel(),
-        buildHomeBody(context),
+        //buildHomeBody(context),
+        buildCategoriesText(),
+        buildRowCategories(),
       ]),
-      drawer: const Drawer(
-        backgroundColor: Colors.white,
-      ),
+      drawer: CustomDrawer(),
     );
   }
 
@@ -92,6 +93,20 @@ class _HomeState extends State<Home> {
         ),
       ]);
 
+  // Widget buildMenuItems(BuildContext context) => Column(
+  //       children: [
+  //         ListTile(
+  //           title: const Text('Log out'),
+  //           onTap: () {
+  //             FirebaseAuth.instance.signOut();
+  //             Navigator.push(context,
+  //                 MaterialPageRoute(builder: (context) => LoginPage()));
+  //             showToast(message: "Successfully signed out");
+  //           },
+  //         ),
+  //       ],
+  //     );
+
   Widget _buildCarousel() {
     return CarouselSlider.builder(
       carouselController: _carouselController,
@@ -118,6 +133,7 @@ class _HomeState extends State<Home> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
             child: Image.asset(
+              // insert file name here <-------
               'assets/imageHome$index.png',
               fit: BoxFit.cover,
             ),
@@ -127,30 +143,111 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget buildHomeBody(BuildContext context) => Container(
-        alignment: Alignment.center,
-        child: GestureDetector(
-          onTap: () {
-            FirebaseAuth.instance.signOut();
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => LoginPage()));
-            showToast(message: "Successfully signed out");
-          },
-          child: Container(
-            height: 45,
-            width: 100,
-            decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-            child: const Center(
-              child: Text(
-                "Sign out",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
+  Widget buildCategoriesText() => Container(
+          child: Align(
+        alignment: Alignment.centerLeft,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20.0, top: 40.0),
+          child: Text('Categories',
+              style: TextStyle(
+                color: Color(0xFF7775FC),
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              )),
+        ),
+      ));
+
+  // Widget buildHomeBody(BuildContext context) => Column(children: [
+  //       Container(
+  //         child: Align(
+  //           alignment: Alignment.centerLeft,
+  //           child: Padding(
+  //             padding: const EdgeInsets.only(left: 20.0, top: 40.0),
+  //             child: Text(
+  //               'Categories',
+  //               style: TextStyle(
+  //                 color: Color(0xFF7775FC),
+  //                 fontWeight: FontWeight.bold,
+  //                 fontSize: 18.0,
+  //               ),
+  //               //textAlign: TextAlign.start,
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //       Row(
+  //         children: <Widget>[
+  //           Expanded(
+  //             flex: 1,
+  //             child: Container(
+  //               decoration: BoxDecoration(
+  //                   color: Color(0xFF8E8BE6),
+  //                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
+  //             ),
+  //           ),
+  //           Expanded(
+  //             flex: 1,
+  //             child: Container(
+  //               decoration: BoxDecoration(
+  //                   color: Color(0xFF8E8BE6),
+  //                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
+  //             ),
+  //           ),
+  //         ],
+  //       )
+  //     ]);
+
+  Widget buildRowCategories() => Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFF8E8BE6),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
               ),
             ),
           ),
-        ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFF8E8BE6),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              ),
+            ),
+          ),
+        ],
       );
+
+  // Widget buildHomeBody(BuildContext context) => Container(
+  //       alignment: Alignment.center,
+  //       child: GestureDetector(
+  //         onTap: () {
+  //           FirebaseAuth.instance.signOut();
+  //           Navigator.push(
+  //               context, MaterialPageRoute(builder: (context) => LoginPage()));
+  //           showToast(message: "Successfully signed out");
+  //         },
+  //         child: Container(
+  //           height: 45,
+  //           width: 100,
+  //           decoration: BoxDecoration(
+  //               color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+  //           child: const Center(
+  //             child: Text(
+  //               "Sign out",
+  //               style: TextStyle(
+  //                   color: Colors.white,
+  //                   fontWeight: FontWeight.bold,
+  //                   fontSize: 18),
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     );
 }
