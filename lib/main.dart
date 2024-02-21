@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:solcha2024/doctors/dnav.dart';
 import 'package:solcha2024/nav.dart';
 import 'package:solcha2024/profile.dart';
 import 'package:solcha2024/users/signup.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
       home:
-          NavigationMenu(), //<------------------ change the class if you need to test
+          DoctorNavigationMenu(), //<------------------ change the class if you need to test
     );
   }
 }
