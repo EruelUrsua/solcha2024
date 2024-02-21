@@ -28,14 +28,16 @@ class _DoctorNavigationMenuState extends State<DoctorNavigationMenu> {
               _currentIndex = newIndex;
             });
           },
+          selectedFontSize: 10,
+          showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              label: 'Home',
               icon: Icon(Icons.home),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              label: 'Book',
               icon: Icon(Icons.bookmark),
+              label: 'Booking',
             ),
           ],
         ));

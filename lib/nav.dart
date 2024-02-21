@@ -15,9 +15,9 @@ class NavigationMenu extends StatefulWidget {
 class _NavigationMenuState extends State<NavigationMenu> {
   int _currentIndex = 0;
   List<Widget> body = const [
+    Profile(),
     Home(),
     Booking(),
-    Profile(),
   ];
 
   @override
@@ -33,18 +33,22 @@ class _NavigationMenuState extends State<NavigationMenu> {
               _currentIndex = newIndex;
             });
           },
+          selectedFontSize: 10,
+          showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home),
-            ),
-            BottomNavigationBarItem(
-              label: 'Book',
-              icon: Icon(Icons.bookmark),
-            ),
-            BottomNavigationBarItem(
-              label: 'Profile',
               icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark),
+              label: 'Booking',
             ),
           ],
         ));
