@@ -1,23 +1,18 @@
-import 'dart:ffi';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:solcha2024/booking.dart';
-import 'package:solcha2024/home.dart';
-import 'package:solcha2024/profile.dart';
+import 'package:solcha2024/doctors/home.dart';
 
-class NavigationMenu extends StatefulWidget {
-  const NavigationMenu({Key? key}) : super(key: key);
+class DoctorNavigationMenu extends StatefulWidget {
+  const DoctorNavigationMenu({Key? key}) : super(key: key);
 
   @override
-  State<NavigationMenu> createState() => _NavigationMenuState();
+  State<DoctorNavigationMenu> createState() => _DoctorNavigationMenuState();
 }
 
-class _NavigationMenuState extends State<NavigationMenu> {
+class _DoctorNavigationMenuState extends State<DoctorNavigationMenu> {
   int _currentIndex = 0;
   List<Widget> body = const [
-    Home(),
-    Booking(),
-    Profile(),
+    DoctorHome(),
+    Icon(Icons.bookmark),
   ];
 
   @override
@@ -41,10 +36,6 @@ class _NavigationMenuState extends State<NavigationMenu> {
             BottomNavigationBarItem(
               label: 'Book',
               icon: Icon(Icons.bookmark),
-            ),
-            BottomNavigationBarItem(
-              label: 'Profile',
-              icon: Icon(Icons.person),
             ),
           ],
         ));
