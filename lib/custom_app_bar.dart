@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height:100,
       decoration: BoxDecoration(
-        color: Color(0xFF8E8BE6), // Background color violet
+        color: Color(0xFFB3ADFF), // Background color violet
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20), // Rounded bottom-left corner
           bottomRight: Radius.circular(20), // Rounded bottom-right corner
@@ -25,12 +25,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: Colors.transparent, // Make the app bar transparent
         elevation: 0, // Remove the app bar's shadow
         leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.white),
+          icon: Icon(Icons.menu, color: Colors.black),
           onPressed: onMenuPressed,
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: Icon(Icons.notifications, color: Colors.black),
             onPressed: onNotificationPressed,
             iconSize: 30,
           ),

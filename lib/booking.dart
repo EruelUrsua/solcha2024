@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'booknow.dart';
 import 'custom_app_bar.dart';
 
 class Booking extends StatefulWidget {
@@ -57,6 +58,18 @@ class _BookingState extends State<Booking> {
               ),
               SizedBox(height: 10.0),
               _buildContainer(),
+              SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookNow()),
+                    );
+                  },
+                  child: Text('Book Now'),
+                ),
+              ),
             ],
           ),
         ),
@@ -154,3 +167,4 @@ class _BookingState extends State<Booking> {
     );
   }
 }
+

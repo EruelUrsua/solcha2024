@@ -27,7 +27,7 @@ git add .
 ```
 git commit -m "Add Details"
 ```
-4. Push  the changes
+4. Push  the changes 
 ```
 git push origin -u <Branch Name>
 ```
