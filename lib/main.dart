@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:solcha2024/doctors/dnav.dart';
@@ -5,6 +6,7 @@ import 'package:solcha2024/nav.dart';
 import 'package:solcha2024/profile.dart';
 import 'package:solcha2024/users/signup.dart';
 import 'package:solcha2024/users/startup.dart';
+import 'package:solcha2024/users/usertype.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +31,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
-      home:
-          NavigationMenu(), //<------------------ change the class if you need to test
+      home: DoctorNavigationMenu(),
+      //NavigationMenu(), //<------------------ change the class if you need to test
     );
   }
 }

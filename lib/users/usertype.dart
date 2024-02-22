@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:ui';
 
 import 'package:solcha2024/users/login.dart';
+import 'package:solcha2024/users/signup.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class UserType extends StatefulWidget {
@@ -33,8 +34,8 @@ class _UserTypeState extends State<UserType> {
                 minWidth: 90.0,
                 cornerRadius: 20.0,
                 activeBgColors: [
-                  const [const Color(0x45519AFF)],
-                  const [const Color(0x45519AFF)]
+                  const [const Color(0xff8E8BE6)],
+                  const [const Color(0xff8E8BE6)]
                 ],
                 activeFgColor: Colors.white,
                 inactiveBgColor: Colors.grey,
@@ -48,6 +49,18 @@ class _UserTypeState extends State<UserType> {
                 },
               ),
             ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPage()),
+                  );
+                },
+                child: Text('Confirm'),
+              ),
+            )
           ],
         ),
       ),
