@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
           toolbarHeight: 80,
           title: Center(
               child: Text(
-            "Hello username!",
+            "Hello, Juan!",
             style: TextStyle(
               color: Colors.white,
               fontSize: 17,
