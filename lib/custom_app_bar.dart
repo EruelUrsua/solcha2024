@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:100,
+      height: 100,
       decoration: BoxDecoration(
         color: Color(0xFFB3ADFF), // Background color violet
         borderRadius: BorderRadius.only(
