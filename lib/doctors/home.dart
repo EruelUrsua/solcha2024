@@ -24,10 +24,10 @@ class DoctorHome extends StatelessWidget {
               },
             ),
           ]),
-      body: Column(children: [
+      body: ListView(children: [
         buildRoundAppBar(context),
         //buildHomeBody(context),
-        buildCategoriesText(),
+        buildAppointText(),
         const Divider(
           height: 20,
           thickness: 1,
@@ -36,9 +36,153 @@ class DoctorHome extends StatelessWidget {
           color: Color(0xFFD2D2D2),
         ),
         SizedBox(height: 10.0),
-        _buildContainer(),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * .12,
+            width: MediaQuery.of(context).size.width * .40,
+            decoration: BoxDecoration(
+                color: Color(0xFF8E8BE6),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "       With",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  " Liannah",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                Text(
+                  " 02/18/2024 8:00 AM",
+                  style: TextStyle(color: Colors.white),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.check),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.clear),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(1.0),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * .12,
+            width: MediaQuery.of(context).size.width * .10,
+            decoration: BoxDecoration(
+                color: Color(0xFF8E8BE6),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "       With",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  " Mike",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                Text(
+                  " 02/25/2024 12:00 PM",
+                  style: TextStyle(color: Colors.white),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.check),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.clear),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+        //SizedBox(height: 1),
+        buildSchedText(),
+        const Divider(
+          height: 20,
+          thickness: 1,
+          indent: 20,
+          endIndent: 10,
+          color: Color(0xFFD2D2D2),
+        ),
         SizedBox(height: 10.0),
-        buildRowCategories(),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * .12,
+            width: MediaQuery.of(context).size.width * .10,
+            decoration: BoxDecoration(
+                color: Color(0xFFB6B6B6),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "       With",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  " Angel",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                Text(
+                  " 03/20/2024 12:00 PM",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * .12,
+            width: MediaQuery.of(context).size.width * .10,
+            decoration: BoxDecoration(
+                color: Color(0xFFB6B6B6),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "       With",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  " Matthew",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                Text(
+                  " 04/21/2024 12:00 PM",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ),
       ]),
       drawer: CustomDrawer(),
     );
@@ -83,12 +227,26 @@ Widget buildRoundAppBar(BuildContext context) => Stack(children: <Widget>[
       ),
     ]);
 
-Widget buildCategoriesText() => Container(
+Widget buildAppointText() => Container(
         child: Align(
       alignment: Alignment.centerLeft,
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, top: 40.0),
         child: Text('Pending Appointment',
+            style: TextStyle(
+              color: Color(0xFF7775FC),
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+            )),
+      ),
+    ));
+
+Widget buildSchedText() => Container(
+        child: Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20.0, top: 40.0),
+        child: Text('Upcoming Schedule',
             style: TextStyle(
               color: Color(0xFF7775FC),
               fontWeight: FontWeight.bold,
@@ -135,6 +293,17 @@ Widget _buildContainer() {
   );
 }
 
+Widget _buildPContainer() {
+  return Column(
+    children: [
+      _buildPurpleContainer(),
+      SizedBox(height: 20.0),
+      _buildPurpleContainer(),
+      SizedBox(height: 5.0),
+    ],
+  );
+}
+
 Widget _buildGrayContainer() {
   return Container(
     height: 100.0,
@@ -142,6 +311,17 @@ Widget _buildGrayContainer() {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15.0),
       color: Colors.grey.shade300,
+    ),
+  );
+}
+
+Widget _buildPurpleContainer() {
+  return Container(
+    height: 100.0,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15.0),
+      color: Color(0xFF8E8BE6),
     ),
   );
 }

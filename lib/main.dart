@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
       ),
-      home: //DoctorNavigationMenu(),
-          NavigationMenu(), //<------------------ change the class if you need to test
+      home: DoctorNavigationMenu(),
+      //NavigationMenu(), //<------------------ change the class if you need to test
     );
   }
 }
