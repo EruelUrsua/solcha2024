@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:solcha2024/booking.dart';
 import 'package:solcha2024/booknow.dart';
+import 'package:solcha2024/diagnose.dart';
 import 'package:solcha2024/home.dart';
 import 'package:solcha2024/profile.dart';
 
@@ -19,7 +20,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
   List<Widget> body = const [
     Profile(),
     Home(),
-    Booking(),
+    Diagnose(),
   ];
 
   @override

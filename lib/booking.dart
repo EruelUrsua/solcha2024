@@ -1,10 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'booknow.dart';
 import 'custom_app_bar.dart';
+import 'custom_appbar_shape.dart';
+import 'doctors/home.dart';
+import 'menu_drawer.dart';
 
 class Booking extends StatefulWidget {
-  const Booking({super.key});
+  const Booking({Key? key}) : super(key: key);
 
   @override
   State<Booking> createState() => _BookingState();
@@ -17,28 +21,34 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        onMenuPressed: () {
-          // Handle menu button pressed
-        },
-        onNotificationPressed: () {
-          // Handle notification button pressed
-          ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Should open something')));
-        },
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        toolbarHeight: 60,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            iconSize: 30,
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Should open something')),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0), // Add padding here
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSearchBar(),
-              SizedBox(height: 10),
+              buildRoundAppBar(context),
+              SizedBox(height: 20),
               Text(
                 'Suggested doctors',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF7775FC),
                 ),
@@ -50,7 +60,7 @@ class _BookingState extends State<Booking> {
               Text(
                 'Nearby searches',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF7775FC),
                 ),
@@ -59,55 +69,13 @@ class _BookingState extends State<Booking> {
               SizedBox(height: 10.0),
               _buildContainer(),
               SizedBox(height: 20),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => BookNow()),
-                    );
-                  },
-                  child: Text('Book Now'),
-                ),
-              ),
             ],
           ),
         ),
       ),
+      drawer: CustomDrawer(),
     );
   }
-
-  Widget _buildSearchBar() {
-    return Material(
-      borderRadius: BorderRadius.circular(20.0),
-      color: Colors.transparent, // Set the color to transparent
-      elevation: 4, // Add a little shadow
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-          border: Border.all(color: Color(0xFF7775FC), width: 1.5), // Add a violet border
-          color: Colors.white, // Change color to white
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: TextField(
-            style: TextStyle(
-              fontSize: 14.0,
-              color: Colors.grey, // Change text color to grey
-            ),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Search...',
-              hintStyle: TextStyle(color: Colors.grey), // Change hint text color to grey
-              icon: Icon(Icons.search, color: Colors.grey), // Change search icon color to grey
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
 
   Widget _buildCarousel() {
     return CarouselSlider.builder(
@@ -147,24 +115,138 @@ class _BookingState extends State<Booking> {
   Widget _buildContainer() {
     return Column(
       children: [
-        _buildGrayContainer(),
+        _buildDoctorItem(
+          image: 'assets/image0.png',
+          name: 'Dr. John Doe',
+          title: 'FPCC,MD',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookNow()),
+            );
+          },
+        ),
         SizedBox(height: 20.0),
-        _buildGrayContainer(),
+        _buildDoctorItem(
+          image: 'assets/image1.png',
+          name: 'Dr. Jane Smith',
+          title: 'DDS',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookNow()),
+            );
+          },
+        ),
         SizedBox(height: 20.0),
-        _buildGrayContainer(),
+        _buildDoctorItem(
+          image: 'assets/image2.png',
+          name: 'Dr. David Brown',
+          title: 'DO',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookNow()),
+            );
+          },
+        ),
       ],
     );
   }
 
-  Widget _buildGrayContainer() {
-    return Container(
-      height: 100.0,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.0),
-        color: Colors.grey.shade300,
+  Widget _buildDoctorItem({required String image, required String name, required String title, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          color: Colors.white, // Change background color to white
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5), // Specify shadow color
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3), // Offset of the shadow
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(12.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              radius: 50.0,
+              backgroundImage: AssetImage(image),
+            ),
+            SizedBox(width: 20.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+class DoctorDetails extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Doctor Details'),
+      ),
+      body: Center(
+        child: Text('Doctor Details Page'),
+      ),
+    );
+  }
+}
+
+
+Widget buildRoundAppBar(BuildContext context) => Stack(children: <Widget>[
+  // search bar
+  Center(
+    child: Padding(
+      padding: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 0.0),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * .04,
+        width: MediaQuery.of(context).size.width * .90,
+        child: Material(
+          elevation: 8,
+          borderRadius: BorderRadius.circular(30),
+          child: TextField(
+            decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                labelText: "Search",
+                prefixIcon:
+                Icon(color: Colors.grey.shade700, Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(color: Color(0xFF8E8BE6)),
+                )),
+            textAlignVertical: TextAlignVertical(y: -0.5),
+          ),
+        ),
+      ),
+    ),
+  ),
+]);
 
