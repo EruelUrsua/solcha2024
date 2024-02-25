@@ -74,7 +74,8 @@ class _CalendarPageState extends State<CalendarPage> {
                     setState(() {
                       _selectedDay = selectedDay;
                       _focusedDay = focusedDay;
-                      _selectedTimeSlot = null; // Reset selected time slot when new day is selected
+                      _selectedTimeSlot =
+                          null; // Reset selected time slot when new day is selected
                     });
                   },
                 ),
@@ -90,7 +91,8 @@ class _CalendarPageState extends State<CalendarPage> {
                   alignment: WrapAlignment.center,
                   children: _timeSlots.map((timeSlot) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0, vertical: 4.0),
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -129,13 +131,14 @@ class _CalendarPageState extends State<CalendarPage> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey.shade300, // Set background color for cancel button
+                            backgroundColor: Colors.grey
+                                .shade300, // Set background color for cancel button
                           ),
                           child: Text(
-                                  'Cancel',
-                                  style: TextStyle(
-                                    color: Colors.grey.shade600,
-                                  ),
+                            'Cancel',
+                            style: TextStyle(
+                              color: Colors.grey.shade600,
+                            ),
                           ),
                         ),
                       ),
@@ -150,7 +153,8 @@ class _CalendarPageState extends State<CalendarPage> {
                                   title: Text('Appointment Summary'),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Appointment with Dr. John Doe",
@@ -158,7 +162,11 @@ class _CalendarPageState extends State<CalendarPage> {
                                           fontSize: 18,
                                         ),
                                       ),
-                                      Text('${_selectedDay!.toLocal().toString().split(' ')[0]}' + ' at ' + '$_selectedTimeSlot' + ' !' ,
+                                      Text(
+                                        '${_selectedDay!.toLocal().toString().split(' ')[0]}' +
+                                            ' at ' +
+                                            '$_selectedTimeSlot' +
+                                            ' !',
                                         style: TextStyle(
                                           fontSize: 18,
                                         ),
@@ -178,7 +186,8 @@ class _CalendarPageState extends State<CalendarPage> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF7775FC), // Set background color for cancel button
+                            backgroundColor: Color(
+                                0xFF7775FC), // Set background color for cancel button
                           ),
                           child: Text(
                             'Confirm',

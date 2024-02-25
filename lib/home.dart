@@ -157,97 +157,43 @@ class _HomeState extends State<Home> {
         ),
       ));
 
-  // Widget buildHomeBody(BuildContext context) => Column(children: [
-  //       Container(
-  //         child: Align(
-  //           alignment: Alignment.centerLeft,
-  //           child: Padding(
-  //             padding: const EdgeInsets.only(left: 20.0, top: 40.0),
-  //             child: Text(
-  //               'Categories',
-  //               style: TextStyle(
-  //                 color: Color(0xFF7775FC),
-  //                 fontWeight: FontWeight.bold,
-  //                 fontSize: 18.0,
-  //               ),
-  //               //textAlign: TextAlign.start,
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //       Row(
-  //         children: <Widget>[
-  //           Expanded(
-  //             flex: 1,
-  //             child: Container(
-  //               decoration: BoxDecoration(
-  //                   color: Color(0xFF8E8BE6),
-  //                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
-  //             ),
-  //           ),
-  //           Expanded(
-  //             flex: 1,
-  //             child: Container(
-  //               decoration: BoxDecoration(
-  //                   color: Color(0xFF8E8BE6),
-  //                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
-  //             ),
-  //           ),
-  //         ],
-  //       )
-  //     ]);
-
-  Widget buildRowCategories() => Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
+  Widget buildRowCategories() {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 12.0),
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.10,
                 decoration: BoxDecoration(
-                    color: Color(0xFF8E8BE6),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              ),
-            ),
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.all(Radius.circular(15)))),
           ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.10,
                 decoration: BoxDecoration(
-                    color: Color(0xFF8E8BE6),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              ),
-            ),
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.all(Radius.circular(15)))),
           ),
-        ],
-      );
-
-  // Widget buildHomeBody(BuildContext context) => Container(
-  //       alignment: Alignment.center,
-  //       child: GestureDetector(
-  //         onTap: () {
-  //           FirebaseAuth.instance.signOut();
-  //           Navigator.push(
-  //               context, MaterialPageRoute(builder: (context) => LoginPage()));
-  //           showToast(message: "Successfully signed out");
-  //         },
-  //         child: Container(
-  //           height: 45,
-  //           width: 100,
-  //           decoration: BoxDecoration(
-  //               color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-  //           child: const Center(
-  //             child: Text(
-  //               "Sign out",
-  //               style: TextStyle(
-  //                   color: Colors.white,
-  //                   fontWeight: FontWeight.bold,
-  //                   fontSize: 18),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     );
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12.0, right: 20.0),
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.10,
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.all(Radius.circular(15)))),
+          ),
+        ),
+      ],
+    );
+  }
 }

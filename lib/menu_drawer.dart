@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:solcha2024/nav.dart';
+import 'package:solcha2024/profile.dart';
 import 'package:solcha2024/toast.dart';
 import 'package:solcha2024/users/login.dart';
 
@@ -48,6 +50,12 @@ class CustomDrawer extends StatelessWidget {
               padding: const EdgeInsets.only(left: 40.0),
               child: ListTile(
                 title: const Text('Profile', style: TextStyle(fontSize: 15.0)),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NavigationMenu()));
+                },
               ),
             ),
             Padding(

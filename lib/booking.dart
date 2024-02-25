@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'booknow.dart';
@@ -154,7 +153,11 @@ class _BookingState extends State<Booking> {
     );
   }
 
-  Widget _buildDoctorItem({required String image, required String name, required String title, required VoidCallback onTap}) {
+  Widget _buildDoctorItem(
+      {required String image,
+      required String name,
+      required String title,
+      required VoidCallback onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -219,34 +222,31 @@ class DoctorDetails extends StatelessWidget {
   }
 }
 
-
 Widget buildRoundAppBar(BuildContext context) => Stack(children: <Widget>[
-  // search bar
-  Center(
-    child: Padding(
-      padding: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 0.0),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * .04,
-        width: MediaQuery.of(context).size.width * .90,
-        child: Material(
-          elevation: 8,
-          borderRadius: BorderRadius.circular(30),
-          child: TextField(
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                labelText: "Search",
-                prefixIcon:
-                Icon(color: Colors.grey.shade700, Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                  borderSide: BorderSide(color: Color(0xFF8E8BE6)),
-                )),
-            textAlignVertical: TextAlignVertical(y: -0.5),
+      // search bar
+      Center(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 0.0),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * .04,
+            width: MediaQuery.of(context).size.width * .90,
+            child: Material(
+              elevation: 8,
+              borderRadius: BorderRadius.circular(30),
+              child: TextField(
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: "Search",
+                    prefixIcon: Icon(color: Colors.grey.shade700, Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      borderSide: BorderSide(color: Color(0xFF8E8BE6)),
+                    )),
+                textAlignVertical: TextAlignVertical(y: -0.5),
+              ),
+            ),
           ),
         ),
       ),
-    ),
-  ),
-]);
-
+    ]);
