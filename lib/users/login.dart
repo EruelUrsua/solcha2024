@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 45,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Color(0xFF7775FC),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       "Sign Up",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Color(0xFF7775FC),
                         fontWeight: FontWeight.bold,
                       ),
                     ),

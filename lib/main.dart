@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'HealthLink',
       theme: ThemeData(
-        appBarTheme: AppBarTheme(color: const Color(0xFF0079BD)),
+        appBarTheme: AppBarTheme(color: const Color(0xFF7775FC)),
       ),
       home: LoginPage(),
       //NavigationMenu(), //<------------------ change the class if you need to test
